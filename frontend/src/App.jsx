@@ -1,4 +1,12 @@
+import { useState } from "react";
+
 function App() {
+  const [adminAberto, setAdminAberto] = useState(true);
+  const [comerAberto, setComerAberto] = useState(true);
+  const [engenAberto, setEngenAberto] = useState(true);
+  const [jornaAberto, setJornaAberto] = useState(true);
+  const [produAberto, setProduAberto] = useState(true);
+
   return (
     <div>
       <h1>Sistema Gestão de Custos e Orçamento</h1>
@@ -30,7 +38,117 @@ function App() {
         </div>
 
         <div style={{ padding: "20px" }}>
-          <h2>Estrutura Organizacional</h2>
+          <div
+            style={{
+              textAlign: "left",
+              marginTop: "20px",
+              border: "1px solid #ccc",
+              padding: "10px",
+              width: "400px",
+            }}
+          >
+            <h3>Estrutura Organizacional da IDTV</h3>
+
+            <ul>
+              <li>
+                IDTV
+                <ul>
+                  <li>
+                    Direção Geral
+                    <ul>
+                      <li>
+                        <span
+                          onClick={() => setAdminAberto(!adminAberto)}
+                          style={{ cursor: "pointer" }}
+                        >
+                          {adminAberto ? "▼ Administração" : "▶ Administração"}
+                        </span>
+                        {adminAberto && (
+                          <ul>
+                            <li>Financeiro</li>
+                            <li>Infraestrutura</li>
+                            <li>RH</li>
+                            <li>Suprimentos</li>
+                          </ul>
+                        )}
+                      </li>
+
+                      <li>
+                        <span
+                          onClick={() => setComerAberto(!comerAberto)}
+                          style={{ cursor: "pointer" }}
+                        >
+                          {comerAberto ? "▼ Comercial" : "▶ Comercial"}
+                        </span>
+                        {comerAberto && (
+                          <ul>
+                            <li>Executivo de contas</li>
+                            <li>Projetos especiais</li>
+                            <li>Planejamento</li>
+                            <li>OPEC</li>
+                            <li>Mídias digitais</li>
+                          </ul>
+                        )}
+                      </li>
+
+                      <li>
+                        <span
+                          onClick={() => setEngenAberto(!engenAberto)}
+                          style={{ cursor: "pointer" }}
+                        >
+                          {engenAberto ? "▼ Engenharia" : "▶ Engenharia"}
+                        </span>
+                        {engenAberto && (
+                          <ul>
+                            <li>Financeiro</li>
+                            <li>Infraestrutura</li>
+                            <li>RH</li>
+                            <li>Suprimentos</li>
+                          </ul>
+                        )}
+                      </li>
+
+                      <li>
+                        <span
+                          onClick={() => setJornaAberto(!jornaAberto)}
+                          style={{ cursor: "pointer" }}
+                        >
+                          {jornaAberto ? "▼ Jornalismo" : "▶ Jornalismo"}
+                        </span>
+                        {jornaAberto && (
+                          <ul>
+                            <li>Financeiro</li>
+                            <li>Infraestrutura</li>
+                            <li>RH</li>
+                            <li>Suprimentos</li>
+                          </ul>
+                        )}
+                      </li>
+
+                      <li>
+                        <span
+                          onClick={() => setProduAberto(!produAberto)}
+                          style={{ cursor: "pointer" }}
+                        >
+                          {produAberto ? "▼ Produção" : "▶ Produção"}
+                        </span>
+                        {produAberto && (
+                          <ul>
+                            <li>Financeiro</li>
+                            <li>Infraestrutura</li>
+                            <li>RH</li>
+                            <li>Suprimentos</li>
+                          </ul>
+                        )}
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <h3>Cadastro de Centro de Custo</h3>
 
           <p>Código:</p>
           <input type="text" />
@@ -49,7 +167,6 @@ function App() {
             <option>Engenharia</option>
             <option>Jornalismo</option>
             <option>Produção</option>
-            <option>Opec</option>
           </select>
 
           <p>Responsável:</p>
@@ -70,25 +187,8 @@ function App() {
 
           <hr />
 
-          <pre>
-          {`IDTV
-          └─ Diretor Geral
-            ├─ Administração
-            │  ├─ RH
-            │  ├─ Financeiro
-            │  ├─ Infraestrutura
-            │  └─ Suprimentos
-            │
-            ├─ Comercial
-            │  ├─ Vendas
-            │  ├─ Pós-Vendas
-            │  ├─ Marketing
-            │  └─ Eventos`}
-          </pre>
-
           <br />
           <br />
-
         </div>
       </div>
     </div>
